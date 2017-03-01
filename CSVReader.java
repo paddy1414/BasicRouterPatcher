@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -37,11 +38,11 @@ public class CSVReader {
             line = br.readLine();
             while ((line = br.readLine()) != null) {
                 i++;
-                String[] country = line.split(cvsSplitBy);
+                String[] router = line.split(cvsSplitBy);
                 try {
-                    dt = new RouterDTo(country[0], country[1], country[2], Double.parseDouble(country[3]), country[4]);
+                    dt = new RouterDTo(router[0], router[1], router[2], Double.parseDouble(router[3]), router[4]);
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    dt = new RouterDTo(country[0], country[1], country[2], Double.parseDouble(country[3]), "");
+                    dt = new RouterDTo(router[0], router[1], router[2], Double.parseDouble(router[3]), "");
                 }
                 if (dt.ifPatched.equalsIgnoreCase("no") && dt.osVersion >= 12) {
                     if (firstRun.equals("yes")) {
